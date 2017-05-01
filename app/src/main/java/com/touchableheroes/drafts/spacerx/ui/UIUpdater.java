@@ -23,8 +23,9 @@ public abstract class UIUpdater<V extends View, S extends Serializable> {
         @Override
         public void update(
                 final TextView view, final String value) {
-
             view.setText( value );
         }
     }
+
+
 }

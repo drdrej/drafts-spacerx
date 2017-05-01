@@ -12,7 +12,8 @@ import java.lang.ref.WeakReference;
 /**
  * Created by asiebert on 08.04.2017.
  */
-public abstract class FragmentBinder
+public abstract class
+FragmentBinder
         extends AbstractUIBinder {
 
     private final WeakReference<Fragment> src;
@@ -21,7 +22,7 @@ public abstract class FragmentBinder
 
     public FragmentBinder(final Fragment src) {
         this.src = new WeakReference<Fragment>(src);
-        this.synthDom = SyntheticDomFactory.create();;
+        this.synthDom = SyntheticDomFactory.create();
     }
 
     @Override
@@ -37,7 +38,7 @@ public abstract class FragmentBinder
             throw new IllegalStateException( "Backref.Fragement is broken/ maybe destroyed." );
         }
 
-        return null;
+        return fragment;
     }
 
 
