@@ -4,8 +4,10 @@ import com.touchableheroes.drafts.spacerx.dom.DOM;
 import com.touchableheroes.drafts.spacerx.state.State;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +17,8 @@ import java.util.Map;
 public class StateTX {
 
     private final DOM dom;
+
+    private List<Enum> removed = new ArrayList<>(10);
 
     private Map<Enum, Serializable> changed = new HashMap<Enum, Serializable>();
 
@@ -41,6 +45,14 @@ public class StateTX {
         }
 
         return  (R) dom.get(key);
+    }
+
+    public void remove(final Enum key) {
+        if( changed.containsKey(key) ) {
+            throw new IllegalStateException( "This key [=" + key + "] changed allready. Can't remove." );
+        }
+
+        changed.put(key, new Remove(key, value(key)) );
     }
 
     public Map<Enum, Serializable> getChanged() {

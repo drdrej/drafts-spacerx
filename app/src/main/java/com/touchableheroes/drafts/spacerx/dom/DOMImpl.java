@@ -1,5 +1,8 @@
 package com.touchableheroes.drafts.spacerx.dom;
 
+import android.util.Log;
+
+import com.touchableheroes.drafts.spacerx.tx.Remove;
 import com.touchableheroes.drafts.spacerx.tx.StateTX;
 
 import java.io.Serializable;
@@ -40,12 +43,22 @@ public class DOMImpl implements DOM {
         notifyChanges(changed);
     }
 
-    private void commitChanges(Map<Enum, Serializable> changed) {
+    private void commitChanges(
+            final Map<Enum, Serializable> changed) {
+
         for (final Enum key : changed.keySet() ) {
             // lock key
 
             // copy key/val to dom
-            this.values.put( key, changed.get(key) );
+            final Serializable value = changed.get(key);
+
+            if( value instanceof Remove ) {
+                Log.d( "StateTX", "remove item" );
+                this.values.remove(key);
+            } else {
+                Log.d( "StateTX", "set item" );
+                this.values.put(key, value);
+            }
 
             // unlock
 
