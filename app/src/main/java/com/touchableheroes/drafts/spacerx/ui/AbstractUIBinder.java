@@ -54,4 +54,7 @@ public abstract class AbstractUIBinder {
             throw new IllegalStateException( "Cast not correct. View is of type [= " + view.getClass().getName() + "]" );
         }
     }
+
+
+
 }

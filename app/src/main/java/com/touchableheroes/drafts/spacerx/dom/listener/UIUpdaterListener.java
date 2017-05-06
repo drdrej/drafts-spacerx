@@ -1,4 +1,4 @@
-package com.touchableheroes.drafts.spacerx.dom;
+package com.touchableheroes.drafts.spacerx.dom.listener;
 
 import java.io.Serializable;
 import java.util.Map;

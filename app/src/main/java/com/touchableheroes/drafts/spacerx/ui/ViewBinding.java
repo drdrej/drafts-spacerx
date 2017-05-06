@@ -3,7 +3,7 @@ package com.touchableheroes.drafts.spacerx.ui;
 import android.view.View;
 
 import com.touchableheroes.drafts.spacerx.dom.SyntheticDOM;
-import com.touchableheroes.drafts.spacerx.dom.UIUpdaterListenerImpl;
+import com.touchableheroes.drafts.spacerx.dom.listener.UIUpdaterListenerImpl;
 
 import java.lang.ref.WeakReference;
 

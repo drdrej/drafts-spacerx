@@ -1,5 +1,6 @@
 package com.touchableheroes.drafts.spacerx.dom;
 
+import com.touchableheroes.drafts.spacerx.dom.listener.UIUpdaterListener;
 import com.touchableheroes.drafts.spacerx.dom.values.Getter;
 
 import java.io.Serializable;

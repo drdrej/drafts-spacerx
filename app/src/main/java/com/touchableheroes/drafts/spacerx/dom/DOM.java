@@ -1,5 +1,6 @@
 package com.touchableheroes.drafts.spacerx.dom;
 
+import com.touchableheroes.drafts.spacerx.dom.listener.DOMChangeListener;
 import com.touchableheroes.drafts.spacerx.tx.StateTX;
 
 import java.io.Serializable;

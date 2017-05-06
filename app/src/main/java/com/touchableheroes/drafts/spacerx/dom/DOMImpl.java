@@ -2,6 +2,7 @@ package com.touchableheroes.drafts.spacerx.dom;
 
 import android.util.Log;
 
+import com.touchableheroes.drafts.spacerx.dom.listener.DOMChangeListener;
 import com.touchableheroes.drafts.spacerx.tx.Remove;
 import com.touchableheroes.drafts.spacerx.tx.StateTX;
 
