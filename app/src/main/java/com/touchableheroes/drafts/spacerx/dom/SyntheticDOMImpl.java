@@ -20,7 +20,7 @@ public class SyntheticDOMImpl
 
     private ActionExecuter executer;
 
-    private final List<UIUpdaterListener> listeners = new ArrayList<>(3);
+    private final List</*UIUpdaterListener*/ DOMChangeListener> listeners = new ArrayList<DOMChangeListener>(3);
 
     private Map<Enum, Getter> getter = new HashMap<>(4);
 
@@ -48,7 +48,17 @@ public class SyntheticDOMImpl
     }
 
     @Override
-    public void addChangeListener(UIUpdaterListener listener) {
+    public void addChangeListener(final UIUpdaterListener listener) {
+        addChangeListener( (DOMChangeListener ) listener );
+    }
+
+
+    @Override
+    public void addChangeListener(final DOMChangeListener listener) {
+        if( listener == null ) {
+
+        }
+
         this.listeners.add( listener );
     }
 
@@ -76,7 +86,7 @@ public class SyntheticDOMImpl
 
     @Override
     public void changed(final Map<Enum, Serializable> changedMap) {
-        for( final UIUpdaterListener listener :  this.listeners ) {
+        for( final DOMChangeListener listener :  this.listeners ) {
             listener.changed( changedMap );
         }
     }

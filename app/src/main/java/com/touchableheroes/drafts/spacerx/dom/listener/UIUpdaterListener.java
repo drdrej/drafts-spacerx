@@ -7,7 +7,8 @@ import java.util.Map;
  * Created by asiebert on 11.04.2017.
  */
 
-public interface UIUpdaterListener {
+public interface UIUpdaterListener
+        extends DOMChangeListener {
 
-    public void changed(final Map<Enum, Serializable> values);
+    // public void changed(final Map<Enum, Serializable> values);
 }

@@ -55,6 +55,12 @@ public abstract class AbstractUIBinder {
         }
     }
 
+    protected ChangeValueBinding onChange(final Enum... changes) {
+        return new ChangeValueBinding( syntheticDom(),
+                changes);
+    }
+
+
 
 
 }

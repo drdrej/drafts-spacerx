@@ -7,6 +7,7 @@ import java.util.Map;
  * Created by asiebert on 11.04.2017.
  */
 public interface DOMChangeListener {
-    public void changed(Map<Enum, Serializable> changedMap);
+
+    public void changed(final Map<Enum, Serializable> changedMap);
 }
 

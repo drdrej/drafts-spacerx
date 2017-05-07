@@ -1,5 +1,6 @@
 package com.touchableheroes.drafts.spacerx.dom;
 
+import com.touchableheroes.drafts.spacerx.dom.listener.DOMChangeListener;
 import com.touchableheroes.drafts.spacerx.dom.listener.UIUpdaterListener;
 import com.touchableheroes.drafts.spacerx.dom.values.Getter;
 
@@ -25,6 +26,8 @@ public interface SyntheticDOM {
 
 
     public void addChangeListener(final UIUpdaterListener listener);
+
+    public void addChangeListener(final DOMChangeListener listener);
 
     public <V> V get(final Enum key);
 

@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by asiebert on 06.05.2017.
  */
-public abstract class MatcheOneOfDOMChangeListener
+public class MatcheOneOfDOMChangeListener
        implements DOMChangeListener {
 
     private final Enum[] loaderId;
@@ -26,7 +26,6 @@ public abstract class MatcheOneOfDOMChangeListener
             chain.changed( changedMap );
         }
     }
-
 
     private boolean match(final Map<Enum, Serializable> changedMap) {
         for( final Enum key : loaderId ) {
