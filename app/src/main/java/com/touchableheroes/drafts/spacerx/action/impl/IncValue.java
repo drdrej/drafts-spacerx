@@ -9,11 +9,11 @@ import java.io.Serializable;
  * Created by asiebert on 08.04.2017.
  */
 
-public class IncValueStateAction extends AbstractStateAction {
+public class IncValue extends AbstractStateAction {
 
     private final Enum key;
 
-    public IncValueStateAction(Enum key) {
+    public IncValue(Enum key) {
         this.key = key;
     }
 
