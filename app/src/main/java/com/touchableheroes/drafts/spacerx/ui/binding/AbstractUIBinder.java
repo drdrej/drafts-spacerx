@@ -1,6 +1,7 @@
 package com.touchableheroes.drafts.spacerx.ui.binding;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.touchableheroes.drafts.spacerx.dom.SyntheticDOM;
@@ -10,18 +11,33 @@ import com.touchableheroes.drafts.spacerx.ui.builder.ChangeValueBindingBuilder;
 import com.touchableheroes.drafts.spacerx.ui.builder.ViewBindingBuilder;
 
 import java.io.Serializable;
+import java.lang.ref.WeakReference;
 
 /**
  * Created by asiebert on 12.04.2017.
  */
-public abstract class AbstractUIBinder {
+public abstract class AbstractUIBinder<T>
+        implements HasOwner<T> {
 
     private final SyntheticDOM synthDom;
+    private final WeakReference<T> owner;
 
     protected abstract View view();
 
-    public AbstractUIBinder() {
+    public AbstractUIBinder(T owner) {
+        this.owner = new WeakReference<T>(owner);
         this.synthDom = SyntheticDomFactory.create();
+    }
+
+    @Override
+    public T owner() {
+        final T rval = (T) owner.get();
+
+        if( rval == null ) {
+            throw new IllegalStateException( "Backref.Fragement is broken/ maybe destroyed." );
+        }
+
+        return rval;
     }
 
     public SyntheticDOM syntheticDom() {

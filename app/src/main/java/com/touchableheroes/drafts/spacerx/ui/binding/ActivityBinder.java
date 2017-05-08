@@ -13,33 +13,16 @@ import java.lang.ref.WeakReference;
  * Created by asiebert on 12.04.2017.
  */
 
-public abstract
-       class ActivityBinder extends AbstractUIBinder {
-
-    private final WeakReference<Activity> src;
-
-    public final SyntheticDOM synthDom;
+public abstract class ActivityBinder
+       extends AbstractUIBinder<Activity> {
 
     public ActivityBinder(final Activity activity) {
-        this.src = new WeakReference<Activity>(activity);
-        this.synthDom = SyntheticDomFactory.create();
+        super(activity);
     }
 
     @Override
     protected View view() {
-        return activity().findViewById(android.R.id.content);
-    }
-
-
-
-    private Activity activity() {
-        final Activity rval = this.src.get();
-
-        if( rval == null ) {
-            throw new IllegalStateException( "Backref.Fragement is broken/ maybe destroyed." );
-        }
-
-        return rval;
+        return owner().findViewById(android.R.id.content);
     }
 
     @Override

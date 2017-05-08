@@ -7,16 +7,10 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 
 public abstract class DialogBinder
-            extends AbstractUIBinder {
-
-        private final WeakReference<Dialog> dialog;
+            extends AbstractUIBinder<Dialog> {
 
         public DialogBinder(final Dialog dialog ) {
-            this.dialog = new WeakReference<Dialog>(dialog);
-        }
-
-        public Dialog dialog() {
-            return this.dialog.get();
+            super(dialog);
         }
 
         @Override
