@@ -1,9 +1,11 @@
-package com.touchableheroes.drafts.spacerx.ui;
+package com.touchableheroes.drafts.spacerx.ui.builder;
 
 import android.view.View;
 
 import com.touchableheroes.drafts.spacerx.dom.SyntheticDOM;
 import com.touchableheroes.drafts.spacerx.dom.listener.UIUpdaterListenerImpl;
+import com.touchableheroes.drafts.spacerx.ui.binding.action.UIAction;
+import com.touchableheroes.drafts.spacerx.ui.binding.action.UIUpdater;
 
 import java.lang.ref.WeakReference;
 
@@ -11,7 +13,7 @@ import java.lang.ref.WeakReference;
  * Created by asiebert on 08.04.2017.
  */
 
-public class ViewBinding {
+public class ViewBindingBuilder {
 
     private final WeakReference<View> owner;
 
@@ -19,14 +21,14 @@ public class ViewBinding {
 
     private Enum boundTo;
 
-    public ViewBinding(
+    public ViewBindingBuilder(
             final View view,
             final SyntheticDOM synth) {
         this.owner = new WeakReference<View>(view);
         this.syntheticDom = synth;
     }
 
-    public ViewBinding click(final UIAction clickListener) {
+    public ViewBindingBuilder click(final UIAction clickListener) {
         final View owner = view();
         owner.setOnClickListener( new View.OnClickListener() {
 
@@ -48,7 +50,7 @@ public class ViewBinding {
         return (V) rval;
     }
 
-    public ViewBinding updater(final UIUpdater uiUpdater) {
+    public ViewBindingBuilder updater(final UIUpdater uiUpdater) {
         this.syntheticDom.addChangeListener(
                 new UIUpdaterListenerImpl(
                         syntheticDom,
@@ -59,7 +61,7 @@ public class ViewBinding {
         return this;
     }
 
-    public ViewBinding value(final Enum key) {
+    public ViewBindingBuilder value(final Enum key) {
         this.boundTo = key;
         return this;
     }

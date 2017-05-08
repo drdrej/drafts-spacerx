@@ -1,4 +1,4 @@
-package com.touchableheroes.drafts.spacerx.ui;
+package com.touchableheroes.drafts.spacerx.ui.binding;
 
 import android.content.Context;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.View;
 import com.touchableheroes.drafts.spacerx.dom.SyntheticDOM;
 import com.touchableheroes.drafts.spacerx.dom.SyntheticDomFactory;
 import com.touchableheroes.drafts.spacerx.dom.values.Getter;
+import com.touchableheroes.drafts.spacerx.ui.builder.ChangeValueBindingBuilder;
+import com.touchableheroes.drafts.spacerx.ui.builder.ViewBindingBuilder;
 
 import java.io.Serializable;
 
@@ -41,7 +43,7 @@ public abstract class AbstractUIBinder {
     }
 
 
-    protected ViewBinding bind(final int id) {
+    protected ViewBindingBuilder bind(final int id) {
         final View view = view().findViewById(id);
 
         if( view == null ) {
@@ -49,14 +51,14 @@ public abstract class AbstractUIBinder {
         }
 
         try {
-            return new ViewBinding( view, syntheticDom() );
+            return new ViewBindingBuilder( view, syntheticDom() );
         } catch (final ClassCastException ccx) {
             throw new IllegalStateException( "Cast not correct. View is of type [= " + view.getClass().getName() + "]" );
         }
     }
 
-    protected ChangeValueBinding onChange(final Enum... changes) {
-        return new ChangeValueBinding( syntheticDom(),
+    protected ChangeValueBindingBuilder onChange(final Enum... changes) {
+        return new ChangeValueBindingBuilder( syntheticDom(),
                 changes);
     }
 

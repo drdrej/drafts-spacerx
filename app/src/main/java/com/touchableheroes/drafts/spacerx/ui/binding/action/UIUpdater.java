@@ -1,4 +1,4 @@
-package com.touchableheroes.drafts.spacerx.ui;
+package com.touchableheroes.drafts.spacerx.ui.binding.action;
 
 import android.view.View;
 import android.widget.TextView;

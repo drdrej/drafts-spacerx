@@ -10,5 +10,4 @@ import java.util.Map;
 public interface UIUpdaterListener
         extends DOMChangeListener {
 
-    // public void changed(final Map<Enum, Serializable> values);
 }

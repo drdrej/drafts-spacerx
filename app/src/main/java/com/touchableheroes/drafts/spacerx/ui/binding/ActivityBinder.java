@@ -1,8 +1,7 @@
-package com.touchableheroes.drafts.spacerx.ui;
+package com.touchableheroes.drafts.spacerx.ui.binding;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.touchableheroes.drafts.spacerx.dom.SyntheticDOM;

@@ -30,6 +30,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     /* compile 'com.github.drdrej:drafts-core:0.0.3' */
-    compile 'com.github.drdrej:drafts-core:-SNAPSHOT'
+    compile 'com.github.drdrej:drafts-core:011965b296' //-SNAPSHOT'
 
 }

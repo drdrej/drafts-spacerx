@@ -1,6 +1,9 @@
-package com.touchableheroes.drafts.spacerx.ui;
+package com.touchableheroes.drafts.spacerx.ui.binding;
 
 import android.view.View;
+
+import com.touchableheroes.drafts.spacerx.ui.binding.action.AbstractAsynUIUpdater;
+import com.touchableheroes.drafts.spacerx.ui.binding.action.UIUpdater;
 
 import java.io.Serializable;
 
